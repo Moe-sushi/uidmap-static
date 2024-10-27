@@ -1,1 +1,1 @@
-curl static binary
+newuidmap and newgidmap static binary
