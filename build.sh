@@ -9,8 +9,8 @@ git clone https://github.com/shadow-maint/shadow
 cd shadow
 autoreconf -fi
 ./autogen.sh
-./configure LDFLAGS="-static -lintl -lgettextlib -L/usr/lib" --enable-static --disable-shared
-make -j8 LDFLAGS="--static"
+./configure LDFLAGS="-static -Wl,--gc-sections -ffunction-sections -fdata-sections -lintl -lgettextlib -L/usr/lib" --enable-static --disable-shared
+make -j8 LDFLAGS="--static -Wl,--gc-sections -ffunction-sections -fdata-sections"
 strip src/newuidmap
 strip src/newgidmap
 upx src/newuidmap
